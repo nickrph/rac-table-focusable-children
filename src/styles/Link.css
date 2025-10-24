@@ -1,0 +1,9 @@
+.react-aria-Link {
+  margin-inline-end: 1rem;
+
+  &[data-focused] {
+    outline: 2px solid skyblue;
+    outline-offset: 2px;
+    border-radius: 6px;
+  }
+}
