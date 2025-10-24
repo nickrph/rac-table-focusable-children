@@ -1,4 +1,4 @@
-name: Deploy React App to GitHub Pages
+name: Deploy GitHub Pages
 
 on:
   push:
@@ -25,11 +25,6 @@ jobs:
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v5
-
-      # - name: Setup git user
-      #   run: |
-      #     git config --global user.name "nickrph"
-      #     git config --global user.email "nickr@pageuppeople.com"
 
       - name: Setup pnpm
         uses: pnpm/action-setup@v4
