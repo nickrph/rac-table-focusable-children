@@ -20,6 +20,7 @@ jobs:
 
       - uses: pnpm/action-setup@v4
         with:
+          version: 9.x.x
           run_install: false
 
       - name: Expose pnpm config(s) through "$GITHUB_OUTPUT"
