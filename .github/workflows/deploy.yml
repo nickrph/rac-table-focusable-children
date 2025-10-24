@@ -5,40 +5,57 @@ on:
     branches:
       - main
 
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
 concurrency:
-  group: ${{ github.workflow }}
+  group: 'pages'
   cancel-in-progress: false
 
 jobs:
   build-and-deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout Repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
-      - name: Setup git user
-        run: |
-          git config --global user.name "nickrph"
-          git config --global user.email "nickr@pageuppeople.com"
-
-      - name: Set up Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: 24
+      # - name: Setup git user
+      #   run: |
+      #     git config --global user.name "nickrph"
+      #     git config --global user.email "nickr@pageuppeople.com"
 
       - name: Setup pnpm
         uses: pnpm/action-setup@v4
         with:
           version: 10
 
+      - name: Set up Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: 24
+          cache: 'pnpm'
+
       - name: Install dependencies
         run: pnpm install
 
-      - name: Build React App
+      - name: Build
         run: pnpm run build
 
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: './dist'
+
       - name: Deploy to GitHub Pages
-        run: pnpm run deploy
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        id: deployment
+        uses: actions/deploy-pages@v4
