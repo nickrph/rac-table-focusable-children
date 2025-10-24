@@ -19,8 +19,8 @@ jobs:
 
       - name: Setup git user
         run: |
-          git config --global user.name "$(git --no-pager log --format=format:'%an' -n 1)"
-          git config --global user.email "$(git --no-pager log --format=format:'%ae' -n 1)"
+          git config --global user.name "nickrph"
+          git config --global user.email "nickr@pageuppeople.com"
 
       - name: Set up Node.js
         uses: actions/setup-node@v4
