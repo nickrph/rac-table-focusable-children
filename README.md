@@ -1,6 +1,12 @@
-# Rsbuild project
+# React Aria Table Focusable Children Issue
 
-## Setup
+![wrong-focused-element](https://github.com/user-attachments/assets/1c4016c3-6f86-43c5-abdf-acd6257ab9f9)
+
+When there's multiple Button inside a Table Cell, the focus move to the first one upon closure of the Popover.
+
+Live demo: https://nickrph.github.io/rac-table-focusable-children/
+
+## Run locally
 
 Install the dependencies:
 
@@ -8,29 +14,8 @@ Install the dependencies:
 pnpm install
 ```
 
-## Get started
-
 Start the dev server, and the app will be available at [http://localhost:3000](http://localhost:3000).
 
 ```bash
 pnpm dev
 ```
-
-Build the app for production:
-
-```bash
-pnpm build
-```
-
-Preview the production build locally:
-
-```bash
-pnpm preview
-```
-
-## Learn more
-
-To learn more about Rsbuild, check out the following resources:
-
-- [Rsbuild documentation](https://rsbuild.rs) - explore Rsbuild features and APIs.
-- [Rsbuild GitHub repository](https://github.com/web-infra-dev/rsbuild) - your feedback and contributions are welcome!
