@@ -1,8 +1,3 @@
-import './App.css';
-import './styles/Button.css';
-import './styles/Popover.css';
-import './styles/Table.css';
-import './styles/Link.css';
 import {
   Button,
   Cell,
@@ -11,6 +6,7 @@ import {
   DialogTrigger,
   Heading,
   Link,
+  Modal,
   OverlayArrow,
   Popover,
   Row,
@@ -18,6 +14,12 @@ import {
   TableBody,
   TableHeader,
 } from 'react-aria-components';
+import './App.css';
+import './styles/Button.css';
+import './styles/Link.css';
+import './styles/Modal.css';
+import './styles/Popover.css';
+import './styles/Table.css';
 
 const App = () => {
   return (
@@ -35,9 +37,9 @@ const App = () => {
             <Cell>File folder</Cell>
             <Cell>6/7/2020</Cell>
             <Cell>
-              <Button>Copy</Button>
+              <Button>Button</Button>
               <DialogTrigger>
-                <Button>Delete</Button>
+                <Button>Popover</Button>
                 <Popover>
                   <OverlayArrow>
                     <svg width={12} height={12} viewBox="0 0 12 12">
@@ -45,8 +47,8 @@ const App = () => {
                     </svg>
                   </OverlayArrow>
                   <Dialog>
-                    <Heading slot="title">Delete</Heading>
-                    <p>Delete the folder permanently.</p>
+                    <Heading slot="title">Popover</Heading>
+                    <p>Popover displayed.</p>
                   </Dialog>
                 </Popover>
               </DialogTrigger>
@@ -59,18 +61,13 @@ const App = () => {
             <Cell>
               <Link>Link</Link>
               <DialogTrigger>
-                <Button>Delete</Button>
-                <Popover>
-                  <OverlayArrow>
-                    <svg width={12} height={12} viewBox="0 0 12 12">
-                      <path d="M0 0 L6 6 L12 0" />
-                    </svg>
-                  </OverlayArrow>
+                <Button>Modal</Button>
+                <Modal isDismissable>
                   <Dialog>
-                    <Heading slot="title">Delete</Heading>
-                    <p>Delete the folder permanently.</p>
+                    <Heading slot="title">Modal</Heading>
+                    <p>Modal displayed.</p>
                   </Dialog>
-                </Popover>
+                </Modal>
               </DialogTrigger>
             </Cell>
           </Row>
